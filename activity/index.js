@@ -54,7 +54,11 @@ class ElectricPokemon extends Pokemon {
     super(name, "Electric", level, hp, trainer);
   }
   attack(opponent) {
-    console.log(`${this.name} uses Thunderbolt on ${opponent.name}`);
+    let electriccolor = "color:#FFAC1C";
+    console.log(
+      `%c${this.name} uses Thunderbolt on ${opponent.name}`,
+      electriccolor
+    );
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
@@ -85,7 +89,11 @@ class FirePokemon extends Pokemon {
     super(name, "Fire", level, hp, trainer);
   }
   attack(opponent) {
-    console.log(`${this.name} uses Fire Blast on ${opponent.name}`);
+    let firecolor = "color:#CC5500";
+    console.log(
+      `%c${this.name} uses Fire Blast on ${opponent.name}`,
+      firecolor
+    );
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
@@ -114,7 +122,11 @@ class WaterPokemon extends Pokemon {
     super(name, "Water", level, hp, trainer);
   }
   attack(opponent) {
-    console.log(`${this.name} uses Water Gun on ${opponent.name}`);
+    let watercolor = "color:#00FFFF";
+    console.log(
+      `%c${this.name} uses Water Gun on ${opponent.name}`,
+      watercolor
+    );
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
@@ -143,7 +155,11 @@ class DragonPokemon extends Pokemon {
     super(name, "Dragon", level, hp, trainer);
   }
   attack(opponent) {
-    console.log(`${this.name} uses Dragon Breath on ${opponent.name}`);
+    let dragoncolor = "color:#953553";
+    console.log(
+      `%c${this.name} uses Dragon Breath on ${opponent.name}`,
+      dragoncolor
+    );
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
@@ -195,7 +211,10 @@ class Battle {
   }
 
   startBattle() {
-    console.log(`${this.pokemon1.name} vs ${this.pokemon2.name}`);
+    let medred = "color:red; font-size:18px;";
+    let smallred = "color:red";
+    let gray = "color: #818589";
+    console.log(`%c${this.pokemon1.name} vs ${this.pokemon2.name}`, medred);
     //each pokemon has a limit of 1 potion
     let potioncount = 1;
     let potioncount2 = 1;
@@ -213,7 +232,7 @@ class Battle {
         //if def value is 1, the pokemon will block the next attack
         if (this.pokemon2.def == 1) {
           this.pokemon2.def = 0;
-          console.log(`${this.pokemon2.name} blocked the attack!`);
+          console.log(`%c${this.pokemon2.name} blocked the attack!`, gray);
         } else {
           this.pokemon1.attack(this.pokemon2);
         }
@@ -221,7 +240,8 @@ class Battle {
       //pokemon will faint and be out of the battle, if hp is 0
       if (this.pokemon2.hp <= 0) {
         console.log(
-          `${this.pokemon2.name} fainted! ${this.pokemon1.name} wins!`
+          `%c${this.pokemon2.name} fainted! ${this.pokemon1.name} wins!`,
+          smallred
         );
         return this.pokemon1;
       }
@@ -231,14 +251,15 @@ class Battle {
       } else {
         if (this.pokemon1.def == 1) {
           this.pokemon1.def = 0;
-          console.log(`${this.pokemon1.name} blocked the attack!`);
+          console.log(`%c${this.pokemon1.name} blocked the attack!`, gray);
         } else {
           this.pokemon2.attack(this.pokemon1);
         }
       }
       if (this.pokemon1.hp <= 0) {
         console.log(
-          `${this.pokemon1.name} fainted! ${this.pokemon2.name} wins!`
+          `%c${this.pokemon1.name} fainted! ${this.pokemon2.name} wins!`,
+          smallred
         );
         return this.pokemon2;
       }
@@ -252,7 +273,16 @@ class Tournament {
   }
 
   startTournament() {
-    console.log("Ash challenges the Elite Four.");
+    let bigred = "color:red; font-size:24px;";
+    let red20 = "color:red; font-size:20px;";
+    let yellow20 = "color:yellow; font-size:24px;";
+    let green20 = "color:green; font-size:20px;";
+    let blue20 = "color:blue; font-size:20px;";
+    let win20 = "color:	#00113a; font-size:24px;";
+    console.log("%cAsh challenges the Elite Four", bigred);
+    console.log(
+      "To become Champion, Trainers must face all four consecutively without losing to any of them. Once you enter each room, you cannot go back out, or swap Pokemon unless the current Pokemon faints. Potion usage is limited to 1 Pokemon each. Goodluck challenger!"
+    );
     //labeled statement so that we can break the loop in a nested loop, for loop allows Ash to fight multiple trainers
     loop1: for (let i = 0; i < this.trainers.length; i++) {
       let trainer1 = ash;
@@ -262,11 +292,12 @@ class Tournament {
       if else here is used to decide what announcement will be used*/
       if (i != 0) {
         console.log(
-          `Ash defeats ${trainername.name} and will continue to the tournament`
+          `%cAsh defeats ${trainername.name} and will continue to the tournament`,
+          green20
         );
-        console.log(`Ash vs ${trainer2.name}`);
+        console.log(`%cAsh vs ${trainer2.name}`, red20);
       } else {
-        console.log(`Ash vs ${trainer2.name}`);
+        console.log(`%cAsh vs ${trainer2.name}`, red20);
       }
 
       for (let l = 0; l < 2; l++) {
@@ -287,19 +318,23 @@ class Tournament {
         let winner = battle.startBattle();
 
         if (pokemoncnt.hp == 0 && pokemoncnt2.hp == 0) {
-          console.log("Ash fails the Elite Four challenge");
+          console.log("%cAsh fails the Elite Four challenge", yellow20);
           break loop1; //breaks the loop if all of Ash's pokemons fainted
         } else if (
           (pokemoncnt.hp != 0 || pokemoncnt2.hp != 0) &&
           i == 3 &&
           l == 1
         ) {
-          console.log("Congratulations to Ash for defeating the Elite Four!");
+          console.log(
+            "%cCongratulations to Ash for defeating the Elite Four!",
+            win20
+          );
           break loop1;
         }
         if (winner) {
           console.log(
-            `${winner.name} continues to the next battle with ${winner.hp} HP!`
+            `%c${winner.name} continues to the next battle with ${winner.hp} HP!`,
+            blue20
           );
         }
       }
