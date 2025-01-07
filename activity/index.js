@@ -9,12 +9,18 @@ class Pokemon {
   //attack the opponent and calculates the damage
   attack(opponent) {
     let damage = this.level * 2;
-    if (Math.floor(Math.random() * 100) < 20) {
+    let critical = "color:#880808; font-size: 15px;";
+
+    if (Math.floor(Math.random() * 100) < 35) {
       damage = damage * 4;
+      console.log(`${this.name} uses HYPER BEAM on ${opponent.name}`);
+      console.log(`%cCRITICAL STRIKE!`, critical);
+    } else {
+      console.log(
+        `${this.trainer} commands ${this.name} to attack ${opponent.name}!`
+      );
     }
-    console.log(
-      `${this.trainer} commands ${this.name} to attack ${opponent.name}!`
-    );
+
     opponent.receiveDamage(damage, this.name);
   }
   //receive damage from attack based on calculation of damage in attack(opponent)
@@ -54,14 +60,22 @@ class ElectricPokemon extends Pokemon {
     super(name, "Electric", level, hp, trainer);
   }
   attack(opponent) {
+    let critical = "color:#880808; font-size: 15px;";
     let electriccolor = "color:#FFAC1C";
-    console.log(
-      `%c${this.name} uses Thunderbolt on ${opponent.name}`,
-      electriccolor
-    );
+
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
+      console.log(
+        `%c${this.name} uses VOLT TACKLE on ${opponent.name}`,
+        electriccolor
+      );
+      console.log(`%cCRITICAL STRIKE!`, critical);
+    } else {
+      console.log(
+        `%c${this.name} uses Thunderbolt on ${opponent.name}`,
+        electriccolor
+      );
     }
     opponent.receiveDamage(damage, this.name);
   }
@@ -89,14 +103,22 @@ class FirePokemon extends Pokemon {
     super(name, "Fire", level, hp, trainer);
   }
   attack(opponent) {
+    let critical = "color:#880808; font-size: 15px;";
     let firecolor = "color:#CC5500";
-    console.log(
-      `%c${this.name} uses Fire Blast on ${opponent.name}`,
-      firecolor
-    );
+
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
+      console.log(
+        `%c${this.name} uses FLAMETHROWER on ${opponent.name}`,
+        firecolor
+      );
+      console.log(`%cCRITICAL STRIKE!`, critical);
+    } else {
+      console.log(
+        `%c${this.name} uses Fire Blast on ${opponent.name}`,
+        firecolor
+      );
     }
     opponent.receiveDamage(damage, this.name);
   }
@@ -122,19 +144,27 @@ class WaterPokemon extends Pokemon {
     super(name, "Water", level, hp, trainer);
   }
   attack(opponent) {
+    let critical = "color:#880808; font-size: 15px;";
     let watercolor = "color:#00FFFF";
-    console.log(
-      `%c${this.name} uses Water Gun on ${opponent.name}`,
-      watercolor
-    );
+
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
+      console.log(
+        `%c${this.name} uses HYDRO PUMP on ${opponent.name}`,
+        watercolor
+      );
+      console.log(`%cCRITICAL STRIKE!`, critical);
+    } else {
+      console.log(
+        `%c${this.name} uses Water Gun on ${opponent.name}`,
+        watercolor
+      );
     }
     opponent.receiveDamage(damage, this.name);
   }
   heal() {
-    let healAmount = Math.round(this.hp / 10);
+    let healAmount = Math.round(this.hp / 6);
     if (healAmount != 0) {
       this.hp += healAmount;
       console.log(
@@ -155,19 +185,27 @@ class DragonPokemon extends Pokemon {
     super(name, "Dragon", level, hp, trainer);
   }
   attack(opponent) {
+    let critical = "color:#880808; font-size: 15px;";
     let dragoncolor = "color:#953553";
-    console.log(
-      `%c${this.name} uses Dragon Breath on ${opponent.name}`,
-      dragoncolor
-    );
+
     let damage = this.level * 3;
     if (Math.floor(Math.random() * 100) < 20) {
       damage = damage * 2;
+      console.log(
+        `%c${this.name} uses DRACO METEOR on ${opponent.name}`,
+        dragoncolor
+      );
+      console.log(`%cCRITICAL STRIKE!`, critical);
+    } else {
+      console.log(
+        `%c${this.name} uses Dragon Breath on ${opponent.name}`,
+        dragoncolor
+      );
     }
     opponent.receiveDamage(damage, this.name);
   }
   heal() {
-    let healAmount = Math.round(this.hp / 10);
+    let healAmount = Math.round(this.hp / 8);
     if (healAmount != 0) {
       this.hp += healAmount;
       console.log(
@@ -279,9 +317,56 @@ class Tournament {
     let green20 = "color:green; font-size:20px;";
     let blue20 = "color:blue; font-size:20px;";
     let win20 = "color:	#00113a; font-size:24px;";
+    console.log(`                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                     -#@@@@%@@@@#=                                     
+                                  @@%.           .#@@                                  
+                                @@:                 :%@                                
+                              -@-                     :@=                              
+                             #%                         %#                             
+                            #%                           %#                            
+                            @=           **:+*           -@                            
+                           @@+:::::::::*-     .*:::::::::=%@                           
+                           @@@@@@@@@@@@@       @@@@@@@@@@@@@                           
+                           @=           -                 :@                           
+                            %             - -             %                            
+                            #-                           -#                            
+                             #-                         -#                             
+                              =#                       #=                              
+                                @*                   +@                                
+                                  @@=             -@@                                  
+                                     +%@@@#*#@@@%*                                     
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       `);
+    console.log(`███████╗██╗     ██╗████████╗███████╗
+██╔════╝██║     ██║╚══██╔══╝██╔════╝
+█████╗  ██║     ██║   ██║   █████╗  
+██╔══╝  ██║     ██║   ██║   ██╔══╝  
+███████╗███████╗██║   ██║   ███████╗
+╚══════╝╚══════╝╚═╝   ╚═╝   ╚══════╝
+███████╗ ██████╗ ██╗   ██╗██████╗ 
+██╔════╝██╔═══██╗██║   ██║██╔══██╗
+█████╗  ██║   ██║██║   ██║██████╔╝
+██╔══╝  ██║   ██║██║   ██║██╔══██╗
+██║     ╚██████╔╝╚██████╔╝██║  ██║
+╚═╝      ╚═════╝  ╚═════╝ ╚═╝  ╚═╝`);
     console.log("%cAsh challenges the Elite Four", bigred);
     console.log(
-      "To become Champion, Trainers must face all four consecutively without losing to any of them. Once you enter each room, you cannot go back out, or swap Pokemon unless the current Pokemon faints. Potion usage is limited to 1 Pokemon each. Goodluck challenger!"
+      "To become Champion, Trainers must face all four consecutively without losing to any of them. Once you enter each room, you cannot go back out, or swap Pokemon unless the current Pokemon faints. Goodluck challenger!"
     );
     //labeled statement so that we can break the loop in a nested loop, for loop allows Ash to fight multiple trainers
     loop1: for (let i = 0; i < this.trainers.length; i++) {
@@ -329,6 +414,21 @@ class Tournament {
             "%cCongratulations to Ash for defeating the Elite Four!",
             win20
           );
+          console.log(`⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣀⠀⢀⣶⣿⡛⠛⠋⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⢛⣿⣶⡄⠀⣀⠀⠀
+⠀⠀⣿⣧⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣼⣿⠀⠀
+⠀⠀⣿⡏⠉⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⢹⣿⠀⠀
+⠀⠀⢻⣧⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⣼⡏⠀⠀
+⠀⠀⠘⣿⡄⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⢰⣿⠃⠀⠀
+⠀⠀⠀⠹⣷⡀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⢠⣿⡏⠀⠀⠀
+⠀⠀⠀⠀⢻⣿⣄⢀⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⣠⣿⡟⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠙⣿⣾⡿⠋⠻⣿⣿⣿⣿⣿⣿⣿⣿⠟⠙⢿⣿⣿⠏⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⠻⠟⠀⠀⠀⢹⣿⣿⣿⣿⡏⠀⠀⠀⠻⠟⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⡟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣿⣿⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠛⠛⠛⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀`);
           break loop1;
         }
         if (winner) {
